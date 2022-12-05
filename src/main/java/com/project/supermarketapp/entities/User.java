@@ -13,14 +13,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 @Entity
-@Table(name ="users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name ="users",uniqueConstraints = @UniqueConstraint(columnNames = {"email","username"}))
 //public class User implements UserDetails {
     public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    //@Column(name="user_id")
     private Integer id;
 
+    private String username;
 
 @Column(name = "first_name")
     private String first_name;

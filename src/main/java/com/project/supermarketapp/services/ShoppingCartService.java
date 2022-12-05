@@ -6,7 +6,7 @@ import com.project.supermarketapp.entities.ShoppingCart;
 import com.project.supermarketapp.entities.User;
 import org.springframework.stereotype.Service;
 
-
+@Service
 public interface ShoppingCartService {
 
         ShoppingCart addItemToCart(Product product, int quantity, User user);

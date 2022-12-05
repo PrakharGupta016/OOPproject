@@ -25,6 +25,6 @@ public class CartItem {
     private ShoppingCart cart;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id_fk", referencedColumnName = "product_id")
+    @JoinColumn(name = "product_id_fk", referencedColumnName = "id")
     private Product product;
 }
