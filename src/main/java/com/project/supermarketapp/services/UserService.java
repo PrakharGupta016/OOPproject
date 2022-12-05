@@ -67,6 +67,11 @@ public class UserService {
         return userDto;
 
     }
+
+
+    public User findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
 //    User save (UserDto registrationDto){}
 
 

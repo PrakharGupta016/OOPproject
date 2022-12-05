@@ -60,4 +60,8 @@ public class ProductService {
         product.setPrice(productDto.getPrice());
         productRepository.save(product);
     }
+
+    public Product getProductById(Long productId) {
+        return productRepository.getById(productId);
+    }
 }

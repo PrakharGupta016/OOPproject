@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
     public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_id")
     private Integer id;
 
 
@@ -28,6 +29,21 @@ import java.util.stream.Collectors;
     private String last_name;
     private String email;
     private String password;
+
+    //<--tawish-->
+    @OneToOne(mappedBy = "user")
+    private ShoppingCart shoppingCart;
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+    //<--tawish-->
+
+
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(
         name = "user_roles",
