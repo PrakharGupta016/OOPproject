@@ -66,5 +66,10 @@ public class WalletController {
     walletService.delete(id);
     return new ResponseEntity(HttpStatus.OK);
   }
+  @PostMapping("add_money/{money}")
+  public ResponseEntity<Wallet> addMoney(@PathVariable Double money,@RequestBody Wallet wallet){
+    Wallet walletSaved = walletService.addMoney(wallet,money);
+    return new ResponseEntity<Wallet>(walletSaved, HttpStatus.CREATED);
+  }
 
 }

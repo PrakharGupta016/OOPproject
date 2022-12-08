@@ -1,8 +1,10 @@
 package com.project.supermarketapp.services;
 import com.project.supermarketapp.entities.Wallet;
 import com.project.supermarketapp.exceptions.WalletException;
+import com.project.supermarketapp.payloads.ProductDto;
 import com.project.supermarketapp.respository.WalletRepo;
 import java.util.Optional;
+import javax.persistence.criteria.CriteriaBuilder.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -43,6 +45,14 @@ import java.util.List;
     }
     //TODO
     throw new WalletException("wallet with"+id+"does not exist");
+  }
+  public Wallet addMoney(Wallet wallet,Double money){
+//Optional<Wallet> wallet=walletRepo.findById(id);
+    double new_balance=wallet.getCurrentBalance()+money;
+    wallet.setCurrentBalance(new_balance);
+//    Wallet wallet=new Wallet();
+
+    return walletRepo.save(wallet);
   }
 
 }

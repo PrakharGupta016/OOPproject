@@ -24,7 +24,7 @@ public class Wallet {
 //  @Size(max = 100)
   private String description;
 
-  private Double currentBalance;
+  private Double currentBalance= 0.00;
 
   public Wallet() {
   }
